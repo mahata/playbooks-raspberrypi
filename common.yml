@@ -13,3 +13,12 @@
 
     - name: Create my personal account
       user: name=mahata
+
+    - name: Make sure .ssh exists
+      file: dest=/home/mahata/.ssh state=directory owner=mahata group=mahata mode=0700
+
+    - name: Set SSH private key
+      copy: content="{{ ssh_private_key }}" dest=/home/mahata/.ssh/id_rsa owner=mahata group=mahata mode=0600
+
+    - name: Set SSH public key
+      copy: content="{{ ssh_public_key }}" dest=/home/mahata/.ssh/authorized_keys owner=mahata group=mahata mode=0600
