@@ -7,7 +7,7 @@
 
   tasks:
     - name: Install Packages
-      apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+      apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=86400
       with_items:
         - zsh
 
@@ -22,3 +22,6 @@
 
     - name: Set SSH public key
       copy: content="{{ ssh_public_key }}" dest=/home/mahata/.ssh/authorized_keys owner=mahata group=mahata mode=0600
+
+    - name: Copy /etc/hosts for mutual connectivity
+      copy: src=files/hosts dest=/etc/hosts force=yes
