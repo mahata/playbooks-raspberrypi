@@ -1,0 +1,11 @@
+StrictHostKeyChecking=no
+UserKnownHostsFile=/dev/null
+
+Host github.com
+    LogLevel quiet
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    port 22
+    user git
+    Protocol 2
+    PreferredAuthentications publickey

@@ -15,7 +15,7 @@
     - name: Create my personal account
       user: name=mahata
 
-    - name: Make sure .ssh exists
+    - name: Make sure ~mahata/.ssh exists
       file: dest=/home/mahata/.ssh state=directory owner=mahata group=mahata mode=0700
 
     - name: Set SSH private key
@@ -23,6 +23,21 @@
 
     - name: Set SSH public key
       copy: content="{{ ssh_public_key }}" dest=/home/mahata/.ssh/authorized_keys owner=mahata group=mahata mode=0600
+
+    - name: Copy ~/.ssh/config
+      copy: src=files/sshconfig dest=/home/mahata/.ssh/config owner=mahata group=mahata mode=0600
+
+    - name: Make sure /root/.ssh exists
+      file: dest=/root/.ssh state=directory owner=root group=root mode=0700
+
+    - name: Set SSH private key (root)
+      copy: content="{{ ssh_private_key }}" dest=/root/.ssh/id_rsa owner=root group=root mode=0600
+
+    - name: Set SSH public key (root)
+      copy: content="{{ ssh_public_key }}" dest=/root/.ssh/authorized_keys owner=root group=root mode=0600
+
+    - name: Copy /root/.ssh/config
+      copy: src=files/sshconfig dest=/root/.ssh/config owner=root group=root mode=0600
 
     - name: Copy /etc/hosts for mutual connectivity
       copy: src=files/hosts dest=/etc/hosts force=yes
