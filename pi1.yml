@@ -6,5 +6,12 @@
   tasks:
     - name: Install Packages
       apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=86400
+      with_items:
         - nginx
         - golang
+
+    - name: Get HipChabot from master branch
+      get_url: url=https://github.com/mahata/HipChabot/archive/master.zip dest=/tmp/hipchabot.zip
+
+    - name: Get HipChabot from master branch
+      unarchive: src=/tmp/hipchabot.zip dest=/usr/local copy=no
