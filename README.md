@@ -6,6 +6,10 @@ You won't be able to run the entire playbooks because my Ansible Vault Key is ne
 
 (In Progress)
 
+## Prerequisites
+
+* Ansible: Version 1.9.x
+
 ## Provision
 
 ### Common Playbooks
