@@ -6,6 +6,26 @@ You won't be able to run the entire playbooks because my Ansible Vault Key is ne
 
 (In Progress)
 
+## Provision
+
+### Common Playbooks
+
+```sh
+ansible-playbook -vv -i inventories/raspberrypi common.yml
+```
+
+### Playbook for pi1
+
+```
+ansible-playbook -vv -i inventories/raspberrypi --limit=frontend pi1.yml
+```
+
+### Playbook for pi2
+
+```
+ansible-playbook -vv -i inventories/raspberrypi --limit=frontend pi2.yml
+```
+
 ## Note
 
 On my environment, there're lines as follows in `/etc/hosts`:
