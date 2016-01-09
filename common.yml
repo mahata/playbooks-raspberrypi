@@ -12,6 +12,8 @@
         - zsh
         - openssh-client
         - silversearcher-ag
+        - telnet
+        - netcat
 
     - name: Create my personal account
       user: name=mahata
