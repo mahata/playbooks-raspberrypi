@@ -11,6 +11,7 @@
       with_items:
         - zsh
         - openssh-client
+        - silversearcher-ag
 
     - name: Create my personal account
       user: name=mahata
